@@ -68,9 +68,9 @@ Final product:
 # Hello World
 This is not a very bright lamp on purpose. Here are three pictures showing how it glows.
 
-<img alt="red lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/red.jpg" height="300">
-<img alt="green lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/green.jpg" height="300">
-<img alt="blue lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/blue.jpg" height="300">
+<img alt="red lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/red.jpg" height="250">
+<img alt="green lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/green.jpg" height="250">
+<img alt="blue lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/blue.jpg" height="250">
 
 # License
 ![CClogo](https://i.creativecommons.org/l/by/4.0/88x31.png)

@@ -1,0 +1,113 @@
+<!-- Crude way of displaying a color wheel and reporting the RGB components of the clicked
+	pixel via a form
+	(C) Jean-Marie Bussat - Creative Commons Attribution 4.0 International Public License
+-->
+<html>
+<head>
+<style>
+body {
+	// Get rid of the scrollbars 
+    overflow:hidden;
+    background:black;
+}
+</style>
+</head>
+
+<body>
+<!-- Only one element on the page: a canvas that will display the color wheel
+ Each click on the canvas will cause the RGB components to be returned to the server
+ -->
+<canvas id="wheelCanvas" onclick="getColor(event)">
+</canvas>
+
+<!-- Javascript code used to display the color wheel in the canvas and manage the clicks
+-->
+<script type="text/javascript">
+	
+	// Display the color wheel in the canvas
+	// 2D drawing canvas management  
+	var canvas = document.getElementById('wheelCanvas');
+	var context = canvas.getContext('2d');
+	var imageObj = new Image();
+	// Needed to prevent "Uncaught SecurityError: Failed to execute 'getImageData'"
+	// http://stackoverflow.com/questions/21642277/security-error-the-operation-is-insecure-in-firefox-document-stylesheets
+	imageObj.crossOrigin = 'anonymous';
+      
+	// Crude attempt to get the color wheel to fit in the browser window regardless of the 
+	// portrait/landscape orientation
+	var dimension;
+	if(window.innerHeight<window.innerWidth){
+		dimension=window.innerHeight;
+	} else {
+      	dimension=window.innerWidth;
+	}
+    
+    // Load the image   
+	imageObj.onload = function() {
+		context.drawImage(imageObj,0,0,600,600,0,0,0.98*dimension,0.98*dimension);
+	};
+	imageObj.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/RGB_color_wheel_360.svg/600px-RGB_color_wheel_360.svg.png";
+	canvas.height=window.innerHeight;
+	canvas.width=window.innerWidth;
+      
+// Function called each time the canvas is clicked
+function getColor(event) {
+	// Get canvas handle
+	var canvas = document.getElementById('wheelCanvas');
+	// Get pixel data where the click happened
+    var pixelData = canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
+    
+    // Debugging code to display the RGB components on the page
+    //document.getElementById("r").innerHTML = pixelData[0]; 
+    //document.getElementById("g").innerHTML = pixelData[1];
+    //document.getElementById("b").innerHTML = pixelData[2];
+    
+    // Create a form to post the RGB components to
+    var form = document.createElement("form");
+    // This is normally the name of the CGI script that will be processing the data on the
+    // server. In our application, this is just going to trigger the right handler on the
+    // ESP8266 web server.
+    // During debugging, this will cause an error because the browser is looking for a 'out'
+    // CGI script that doesn't exist.
+    form.action="out";
+    
+    // Create the RGB input field, set them the their respective value and add them to the form
+    var nr = document.createElement("input");
+    nr.name="R";
+    nr.value=pixelData[0].toString();
+    form.appendChild(nr);
+    
+    var ng = document.createElement("input");
+    ng.name="G";
+    ng.value=pixelData[1].toString();
+    form.appendChild(ng);
+    
+    var nb = document.createElement("input");
+    nb.name="B";
+    nb.value=pixelData[2].toString(); 
+    form.appendChild(nb);
+    
+    // The form is hidden
+    form.style.display="none";
+    // Append the hidden form to the body of the page
+    document.body.appendChild(form);
+    // Immediately submit it 
+    // This will cause the URL of the page to become:
+    // colorwheel.html?R=rrr&G=ggg&B=bbb
+    // where rrr, ggg, bbb are the RGB components from the clicked pixel (0 to 255).  
+    form.submit();   
+}
+</script>
+
+<!--
+<table bgcolor="white">
+<tr><td>Red</td><td>=</td><td id="r">0</td>
+</tr>
+<tr><td>Green</td><td>=</td><td id="g">0</td>
+</tr>
+<tr><td>Blue</td><td>=</td><td id="b">0</td>
+</tr>
+</table>
+-->
+</body>
+</html>

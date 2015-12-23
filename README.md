@@ -22,6 +22,8 @@ The client side uses a HTML5/Javasript based color picker. The HTML code is conv
 
 The Javascript code returns the R, G, B components via a form-based interface. I initially started with three sliders to directly control the RGB components but I didn't like the look of it. 
 
+A web search lead me to an image in Wikimedia Commons [https://commons.wikimedia.org/wiki/File:RGB_color_wheel_360.svg](https://commons.wikimedia.org/wiki/File:RGB_color_wheel_360.svg). This is the work of László Németh and much closer to what I had in mind.
+
 The RGB components are read by the server side code and directly converted into integers that are fed to the WS2812.
 
 I developped the Javascript code separately from the ESP code. You can find it in the file *colorwheel.html*.

@@ -24,6 +24,16 @@ The Javascript code returns the R, G, B components via a form-based interface. I
 
 The RGB components are read by the server side code and directly converted into integers that are fed to the WS2812.
 
+# Hello World
+This is not a very bright lamp on purpose. Here are three pictures showing how it glows.
+
+(https://github.com/jmbussat/WS2812_ESP8266/Img/red.png)
+
+(https://github.com/jmbussat/WS2812_ESP8266/Img/green.png)
+
+(https://github.com/jmbussat/WS2812_ESP8266/Img/blue.png)
+
 # License
 ![CClogo](https://i.creativecommons.org/l/by/4.0/88x31.png)
+
 This work is licensed under a [Creative Commons Attribution 4.0 International License] (http://creativecommons.org/licenses/by/4.0/)

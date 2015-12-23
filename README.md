@@ -30,6 +30,8 @@ The html file is converted into a C "header" file via the following command:
 ```bash
 cat colorwheel.html  | sed -e "s/\"/'/g" | sed -e '/^\s*$/d' | sed -e 's/.*/\"&\"/g' > colorwheel.h
 ```
+
+This replace all double quotes with single quotes, removes empty lines and encloses each line in double quotes.
 The resulting file is then copied as *html_header.h* and the following is added at the begining to make it a constant definition:
 
 ```c
@@ -48,7 +50,7 @@ The base (an old tape reel box) has few holes drilled into it to accecpt the scr
 <img alt="red lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/TopView.jpg" width="300">
 
 There is a big slot to allow the lantern holder to sit in.
-The lantern is attached using two screws+nuts and these special toothed washers (can't remeber where I found them):
+The lantern is attached using two screws+nuts and these special toothed washers (can't remember where I found them):
 
 <img alt="red lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/LanternFasteners.jpg" width="300">
 
@@ -66,7 +68,7 @@ Final product:
 
 
 # Hello World
-This is not a very bright lamp on purpose. Here are three pictures showing how it glows.
+This is not a very bright lamp on purpose. Here are three pictures showing how it glows. I took the picture looking down but the lamp is meant to be sitting at the top of a shelf (or at the top of an Ikea lamp) where the glow of the LED isn't visible unlike on the follwing pictures.
 
 <img alt="red lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/red.jpg" height="250">
 <img alt="green lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/green.jpg" height="250">

@@ -24,6 +24,19 @@ The Javascript code returns the R, G, B components via a form-based interface. I
 
 The RGB components are read by the server side code and directly converted into integers that are fed to the WS2812.
 
+I developped the Javascript code separately from the ESP code. You can find it in the file *colorwheel.html*.
+The html file is converted into a C "header" file via the following command:
+
+```bash
+cat colorwheel.html  | sed -e "s/\"/'/g" | sed -e '/^\s*$/d' | sed -e 's/.*/\"&\"/g' > colorwheel.h
+```
+The resulting file is then copied as *html_header.h* and the following is added at the begining to make it a constant definition:
+
+```c
+const char* html_header =
+```
+A semicolon has to be added at the end.
+
 This is the user interface as displayed in Safari on an iPhone:
 
 <img alt="red lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/UI.PNG" width="300">

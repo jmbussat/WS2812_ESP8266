@@ -27,11 +27,11 @@ The RGB components are read by the server side code and directly converted into 
 # Hello World
 This is not a very bright lamp on purpose. Here are three pictures showing how it glows.
 
-![red](https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/red.jpg)
+<img alt="red lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/red.jpg" width="200">
 
-![green](https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/green.jpg)
+<img alt="green lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/green.jpg" width="200">
 
-![blue](https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/blue.jpg)
+<img alt="blue lantern" src="https://github.com/jmbussat/WS2812_ESP8266/blob/master/Img/blue.jpg" width="200">
 
 # License
 ![CClogo](https://i.creativecommons.org/l/by/4.0/88x31.png)

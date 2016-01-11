@@ -13,7 +13,8 @@ GPIO0 of the ESP8266 is used to drive the WS2812.
 The ESP is powered under 3.3V using the linear regulator. The WS2812 is powered directly off the 5V.
 
 ## Software
-The code is written for the arduino interface for the ESP8266 because it provided the fastest idea to working system turnaround.
+The code is written for the Arduino interface for the ESP8266 because it provided the fastest idea to working system turnaround.
+I am not using Nodemcu. The code compiled by the Arduino environment is running directly on the ESP8266.
 It is using the following libraries:
   - ESP8266 Web Server
   - Adafruit NeoPixel

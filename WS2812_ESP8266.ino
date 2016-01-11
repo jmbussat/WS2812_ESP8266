@@ -22,7 +22,7 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUM_PIX, 0, NEO_GRB + NEO_KHZ800);
 
 // Root handler: basic web page with link to settings page
 void handle_root() {
-  server.send(200, "text/plain", "WS2812 WiFi <a href='./out'>Control</a>");
+  server.send(200, "text/html", "<html>WS2812 WiFi <a href='./out'>Control</a></html>");
   delay(100);
 }
 
